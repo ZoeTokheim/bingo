@@ -1,0 +1,29 @@
+
+  /* Adjust the size of Bingo squares */
+.bingo-square {
+  width: calc(20% - 50px);
+  height: 120px;
+  border-radius: 10px; /* Add rounded corners */
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3); /* Add a subtle shadow */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font: bold 16px sans-serif; /* Increase font size for readability */
+  background-color: #ddb575;
+  color: #2f2f2f;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.bingo-square.completed {
+  background-color: #4caf50; /* Green background color for completed squares */
+  color: #ffffff; /* White text color for completed squares */
+}
+  
+    
+/* Media queries for smaller screens */
+@media screen and (max-width: 1200px) {
+  .bingo-square {
+    font: bold 14px sans-serif; /* Increase font size for readability */
+  }
+}
