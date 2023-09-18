@@ -1,9 +1,20 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import './BingoBoard.css';
 import BingoSquare from './BingoSquare';
+import Modal from '../Modal/Modal';
 
 function BingoBoard() {
-  // Sample text for each square, you can replace these with your own ideas
+  const [isModalOpen, setIsModalOpen] = React.useState(false);
+
+  function openModal() {
+    setIsModalOpen(true);
+  }
+
+  function closeModal() {
+    setIsModalOpen(false);
+  }
+
+  // bingo
   const bingoItems = [
     'Visit a local cafe',
     'Attend a community event',
@@ -34,11 +45,18 @@ function BingoBoard() {
   ];
 
   return (
-    <div className="bingo-board">
+    <Fragment>
+      <Modal
+        closeModal={closeModal}
+        isModalOpen={isModalOpen}
+      />
+      <div className="bingo-board">
+        <button onClick={openModal}>Open Modal</button>
         {bingoItems.map((item, index) => (
-            <BingoSquare key={index} text={item} />
+          <BingoSquare key={index} text={item} />
         ))}
-    </div>
+      </div>
+    </Fragment>
   );
 }
 

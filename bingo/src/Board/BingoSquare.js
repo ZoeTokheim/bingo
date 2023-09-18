@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import './BingoSquare.css';
-import Modal from '../Modal/Modal';
 
 function BingoSquare(props) {
   const [completed, setCompleted] = useState(false);
@@ -10,24 +9,24 @@ function BingoSquare(props) {
     setCompleted(!completed);
   };
 
-  const openModal = () => {
-    setIsModalOpen(true);
-  };
+  // const openModal = () => {
+  //   setIsModalOpen(true);
+  // };
 
-  const closeModal = () => {
-    setIsModalOpen(false);
-  };
+  // const closeModal = () => {
+  //   setIsModalOpen(false);
+  // };
 
   return (
-    <div className={`bingo-square ${completed ? 'completed' : ''}`} onClick={openModal}>
+    <div className={`bingo-square ${completed ? 'completed' : ''}`}>
       {props.text}
-      <Modal
+      {/* <Modal
         isOpen={isModalOpen}
         onClose={closeModal}
         description={props.text}
         completed={completed}
         onCompletedChange={toggleCompleted}
-      />
+      /> */}
     </div>
   );
 }

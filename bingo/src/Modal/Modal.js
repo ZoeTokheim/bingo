@@ -3,24 +3,26 @@ import ReactModal from 'react-modal';
 import './Modal.css';
 
 function Modal(props) {
+
+  ReactModal.setAppElement(document.getElementById('root'));
+
   return (
     <ReactModal
-      isOpen={props.isOpen}
-      backdrop="static"
-      ariaHideApp={false}
-      onRequestClose={props.onClose}
+      isOpen={props.isModalOpen}
+      onRequestClose={props.closeModal}
+      contentLabel="Bingo Modal"
+      className="modal"
+      overlayClassName="overlay"
     >
-        <h2>Description</h2>
-        <p>{props.description}</p>
-        <label>
-          Completed?
-          <input
-            type="checkbox"
-            checked={props.completed}
-            onChange={props.onCompletedChange}
-          />
-        </label>
-        <button className="close" onClick={props.onClose}>Close</button>
+      <button onClick={props.closeModal}>close</button>
+      <div>I am a modal</div>
+      <form>
+        <input />
+        <button>tab navigation</button>
+        <button>stays</button>
+        <button>inside</button>
+        <button>the modal</button>
+      </form>
     </ReactModal>
   );
 }
