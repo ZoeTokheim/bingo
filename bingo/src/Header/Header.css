@@ -1,14 +1,15 @@
 .header {
     position: absolute;
-    background-color: #151231;
+    background-color: #f4f1de;
     width: 100%;
     top: 0;
     height: 75px;
+    border-bottom: solid 5px #151231;
 }
 
 h1 {
     font-size: 28px; /* Increase font size for the header */
-    color: #f4f1de; /* Darken the header text color */
+    color: #151231; /* Darken the header text color */
     text-align: left;
     margin-left: 20px;
     font-family: 'Major Mono Display', monospace;

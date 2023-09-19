@@ -3,7 +3,7 @@ import ReactModal from 'react-modal';
 import './Modal.css';
 import TopBar from './TopBar'
 import Description from './Description'
-import Icon from './Icon'
+import Complete from './Complete'
 
 function Modal(props) {
 
@@ -25,8 +25,9 @@ function Modal(props) {
         <Description
           icon={props.icon}
           text={props.description} />
-        {/* <Icon
-          icon={props.icon} /> */}
+        <Complete
+          complete={props.complete}
+          toggleComplete={props.toggleComplete} />
       </div>
     </ReactModal >
   );

@@ -1,14 +1,26 @@
 import React from 'react';
-import './Icon.css';
+import './Complete.css';
 
-function Icon(props) {
+function Complete(props) {
     return (
-        <div className="task-icon">
-            <i class="icon fa-solid fa-icons fa-2x"></i>
-            <i className={`${props.icon} fa-2x`}></i>
-        </div>
+        <div>
+            {props.complete ?
+                <div className="completion-bar">
+                    <i className="check fa-regular fa-square-check fa-2x" onClick={props.toggleComplete}></i>
+                    <p className="completion-text">complete!! :D</p>
+                </div>
+
+                :
+                <div className="completion-bar">
+                    <i className="check fa-regular fa-square fa-2x" onClick={props.toggleComplete}></i>
+                    <p className="completion-text">not complete :(</p>
+                </div>
+
+
+            }
+        </div >
 
     );
 }
 
-export default Icon;
+export default Complete;

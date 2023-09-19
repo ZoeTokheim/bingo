@@ -1,26 +1,43 @@
-import React, { useState } from 'react';
+import React, { Fragment } from 'react';
 import './BingoSquare.css';
+import Modal from '../Modal/Modal';
 
 function BingoSquare(props) {
-  const [completed, setCompleted] = useState(false);
+  const [isModalOpen, setIsModalOpen] = React.useState(false);
 
-  const toggleCompleted = () => {
-    setCompleted(!completed);
-  };
+  function toggleComplete() {
+    props.editComplete(props.id, !props.complete);
+  }
+
+  function openModal() {
+    setIsModalOpen(true);
+  }
+
+  function closeModal() {
+    setIsModalOpen(false);
+  }
 
   const onClickSquare = () => {
-    props.setCurrTask(props.text);
-    props.setCurrDescription(props.description);
-    props.setCurrIcon(props.icon);
-    props.openModal();
+    openModal();
   };
 
   return (
-    <div
-      className={`bingo-square ${completed ? 'completed' : ''}`}
-      onClick={onClickSquare}>
-      <i className={`${props.icon} fa-3x`}></i>
-    </div>
+    <Fragment>
+      <Modal
+        closeModal={closeModal}
+        isModalOpen={isModalOpen}
+        text={props.text}
+        description={props.description}
+        icon={props.icon}
+        complete={props.complete}
+        toggleComplete={toggleComplete}
+      />
+      <div
+        className={`bingo-square ${props.complete ? 'completed' : ''}`}
+        onClick={onClickSquare} >
+        <i className={`${props.icon} fa-3x`}></i>
+      </div >
+    </Fragment>
   );
 }
 

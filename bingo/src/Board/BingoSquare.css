@@ -19,7 +19,7 @@
 }
 
 .bingo-square.completed {
-  background-color: #4caf50; /* Green background color for completed squares */
+  background-color: #5a7f5b; /* Green background color for completed squares */
   color: #ffffff; /* White text color for completed squares */
 }
   
