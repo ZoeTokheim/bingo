@@ -1,25 +1,22 @@
 /* Colors: 
   White: #f4f1de
   Red: #e07a5f
-  Dark indigo: #3d405b
+  Dark indigo: #121429
   Light green: #81b29a
-  Yellow: #ddb575
+  brown kind of: #ceb48a
   Dark gray: #2f2f2f
 */
 
 
 body {
-  background-color: #2f2f2f; /* Set the background color for the entire webpage */
+  background-color: #51433f; /* Set the background color for the entire webpage */
 }
 
 .App {
   text-align: center;
-  margin: 20px;
   font-family: 'Rubik', sans-serif;
 }
 
-h1 {
-  font-size: 28px; /* Increase font size for the header */
-  margin-bottom: 20px;
-  color: #f4f1de; /* Darken the header text color */
+.app-content{
+  margin-top: 120px;
 }

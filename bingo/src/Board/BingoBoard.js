@@ -2,9 +2,13 @@ import React, { Fragment } from 'react';
 import './BingoBoard.css';
 import BingoSquare from './BingoSquare';
 import Modal from '../Modal/Modal';
+import tasks from '../Tasks';
 
 function BingoBoard() {
   const [isModalOpen, setIsModalOpen] = React.useState(false);
+  const [currTask, setCurrTask] = React.useState("");
+  const [currDescription, setCurrDescription] = React.useState("");
+  const [currIcon, setCurrIcon] = React.useState("");
 
   function openModal() {
     setIsModalOpen(true);
@@ -15,45 +19,27 @@ function BingoBoard() {
   }
 
   // bingo
-  const bingoItems = [
-    'Visit a local cafe',
-    'Attend a community event',
-    'Take a city tour',
-    'Join a language exchange',
-    'Visit a museum',
-    'Try the local cuisine',
-    'Explore a park',
-    'Attend a live music event',
-    'Join a sports club',
-    'Attend a cultural festival',
-    'Take a dance class',
-    'Visit a historical site',
-    'Join a photography club',
-    'Attend a meetup group',
-    'Volunteer in the community',
-    'Join a local sports game',
-    'Attend a cooking class',
-    'Explore a local market',
-    'Join a book club',
-    'Visit a nearby beach',
-    'Join a local sports game',
-    'Attend a cooking class',
-    'Explore a local market',
-    'Join a book club',
-    'Visit a nearby beach'
-
-  ];
-
   return (
     <Fragment>
       <Modal
         closeModal={closeModal}
         isModalOpen={isModalOpen}
+        text={currTask}
+        description={currDescription}
+        icon={currIcon}
       />
       <div className="bingo-board">
-        <button onClick={openModal}>Open Modal</button>
-        {bingoItems.map((item, index) => (
-          <BingoSquare key={index} text={item} />
+        {tasks.map((item, index) => (
+          <BingoSquare
+            key={index}
+            text={item.text}
+            description={item.description}
+            icon={item.icon}
+            setCurrTask={setCurrTask}
+            setCurrDescription={setCurrDescription}
+            setCurrIcon={setCurrIcon}
+            openModal={openModal}
+          />
         ))}
       </div>
     </Fragment>

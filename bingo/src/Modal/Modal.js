@@ -1,6 +1,9 @@
 import React from 'react';
 import ReactModal from 'react-modal';
 import './Modal.css';
+import TopBar from './TopBar'
+import Description from './Description'
+import Icon from './Icon'
 
 function Modal(props) {
 
@@ -14,16 +17,18 @@ function Modal(props) {
       className="modal"
       overlayClassName="overlay"
     >
-      <button onClick={props.closeModal}>close</button>
-      <div>I am a modal</div>
-      <form>
-        <input />
-        <button>tab navigation</button>
-        <button>stays</button>
-        <button>inside</button>
-        <button>the modal</button>
-      </form>
-    </ReactModal>
+      <TopBar
+        closeModal={props.closeModal}
+        taskName={props.text}
+      />
+      <div className="modal-content">
+        <Description
+          icon={props.icon}
+          text={props.description} />
+        {/* <Icon
+          icon={props.icon} /> */}
+      </div>
+    </ReactModal >
   );
 }
 

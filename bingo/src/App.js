@@ -1,12 +1,15 @@
 import React from 'react';
 import './App.css';
 import BingoBoard from './Board/BingoBoard';
+import Header from './Header/Header';
 
 function App() {
   return (
     <div className="App">
-      <h1>Matthew Bingo</h1>
-      <BingoBoard/>
+      <Header />
+      <div className="app-content">
+        <BingoBoard />
+      </div>
     </div>
   );
 }

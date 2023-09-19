@@ -1,0 +1,22 @@
+.header {
+    position: absolute;
+    background-color: #151231;
+    width: 100%;
+    top: 0;
+    height: 75px;
+}
+
+h1 {
+    font-size: 28px; /* Increase font size for the header */
+    color: #f4f1de; /* Darken the header text color */
+    text-align: left;
+    margin-left: 20px;
+    font-family: 'Major Mono Display', monospace;
+    margin-top: 13px;
+  }
+
+.four {
+    font-size: 40px;
+    margin-left: 5px;
+    margin-right: 8px;
+}

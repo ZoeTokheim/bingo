@@ -1,0 +1,12 @@
+.task-icon {
+    padding: 10px;
+    display: flex;  
+    font-weight: 600;
+    margin-bottom: 10px;
+    margin-right: 3px;
+}
+
+.icon {
+    color: #bab8a3; 
+    margin-left: 5px;
+}
