@@ -11,6 +11,11 @@
     margin-right: 25px;
 }
 
+.check:hover {
+    color: #716f6f;
+    margin-right: 25px;
+}
+
 .completion-text {
     margin-top: 6px;
 }

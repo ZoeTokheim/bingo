@@ -1,11 +1,11 @@
 .modal {
     position: relative;
-    width: 400px;
-    height: 450px;
+    max-width: 600px;
     top: 30%;
     border-radius: 30px;
     background-color: #f4f1de;
     margin: auto;
+    padding-bottom: 5px;
     outline: 0;
 }
 
@@ -55,7 +55,7 @@
     margin-left: 15px;
     margin-right: 15px;
     font-size: 20px;
-    max-width: 380px;
+    max-width: 450px;
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;  

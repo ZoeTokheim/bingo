@@ -1,16 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import './App.css';
 import BingoBoard from './Board/BingoBoard';
 import Header from './Header/Header';
 import tasks from './Tasks';
+import Confetti from 'react-confetti';
 
 function App() {
   const [data, setData] = useState(tasks);
+  const [isBingoAchieved, setIsBingoAchieved] = useState(false);
 
-  function editComplete(
-    taskId,
-    complete,
-  ) {
+  function editComplete(taskId, complete) {
     setData(
       data.map((task) =>
         task.id === taskId
@@ -20,7 +19,7 @@ function App() {
     );
   }
 
-  function isBingo() {
+  const isBingo = useCallback(() => {
     // Create a 5x5 grid to keep track of completed tasks.
     const grid = Array(5).fill().map(() => Array(5).fill(false));
 
@@ -58,16 +57,39 @@ function App() {
 
     // If no bingo is found, return false.
     return false;
-  }
-  console.log(isBingo());
+  }, [data]);
+
+  useEffect(() => {
+    // Check for bingo logic
+    const bingoAchieved = isBingo();
+    setIsBingoAchieved(bingoAchieved);
+
+    // Automatically hide the confetti after 5 seconds if bingo is achieved
+    if (bingoAchieved) {
+      const timeoutId = setTimeout(() => {
+        setIsBingoAchieved(false);
+      }, 5000);
+
+      return () => {
+        clearTimeout(timeoutId);
+      };
+    }
+  }, [data, isBingo]);
 
   return (
     <div className="App">
       <Header />
+      {isBingoAchieved && (
+        <Confetti
+          numberOfPieces={200}
+          recycle={false}
+        />
+      )}
       <div className="app-content">
         <BingoBoard
           tasks={data}
-          editComplete={editComplete} />
+          editComplete={editComplete}
+        />
       </div>
     </div>
   );
