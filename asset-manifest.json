@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/bingo/static/css/main.dea8cf57.css",
+    "main.js": "/bingo/static/js/main.bd876622.js",
+    "index.html": "/bingo/index.html",
+    "main.dea8cf57.css.map": "/bingo/static/css/main.dea8cf57.css.map",
+    "main.bd876622.js.map": "/bingo/static/js/main.bd876622.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.dea8cf57.css",
+    "static/js/main.bd876622.js"
+  ]
+}
