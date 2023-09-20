@@ -6,7 +6,9 @@ import tasks from './Tasks';
 import Confetti from 'react-confetti';
 
 function App() {
-  const [data, setData] = useState(tasks);
+  const [data, setData] = useState(
+    JSON.parse(localStorage.getItem('tasks')) || tasks
+  );
   const [isBingoAchieved, setIsBingoAchieved] = useState(false);
 
   function editComplete(taskId, complete) {
@@ -18,6 +20,10 @@ function App() {
       )
     );
   }
+
+  useEffect(() => {
+    localStorage.setItem('tasks', JSON.stringify(data));
+  }, [data]);
 
   const isBingo = useCallback(() => {
     // Create a 5x5 grid to keep track of completed tasks.
